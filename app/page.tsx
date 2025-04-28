@@ -5,43 +5,43 @@ import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
 
 
-const stories = [
-    {
-      "id": 1,
-      "title": "A Mother's Endless Love",
-      "excerpt": "Discover the touching story of Maria, a mother whose sacrifices shaped her family’s future.",
-      "category": "Stories",
-      "image": "https://via.placeholder.com/12h-240x600?text=A+Mother's+Endless+Love"
-    },
-    {
-      "id": 2,
-      "title": "Staying Healthy as a Busy Mom",
-      "excerpt": "Learn simple tips for moms to maintain health and balance in their daily lives.",
-      "category": "Health",
-      "image": "https://via.placeholder.com/1200x600?text=Healthy+Mom"
-    },
-    {
-      "id": 3,
-      "title": "Inspiring Moms Who Lead",
-      "excerpt": "Celebrate mothers like Sarah, who turned challenges into opportunities for all.",
-      "category": "Inspiration",
-      "image": "https://via.placeholder.com/1200x600?text=Inspiring+Moms"
-    },
-    {
-      "id": 4,
-      "title": "The Gift of Time",
-      "excerpt": "A heartwarming tale of a mother and daughter reconnecting through simple moments.",
-      "category": "Stories",
-      "image": "https://via.placeholder.com/1200x600?text=Gift+of+Time"
-    },
-    {
-      "id": 5,
-      "title": "Mindfulness for Moms",
-      "excerpt": "Explore how mindfulness helps mothers find peace amidst the chaos.",
-      "category": "Health",
-      "image": "https://via.placeholder.com/1200x600?text=Mindfulness"
-    }
-]
+// const stories = [
+//     {
+//       "id": 1,
+//       "title": "A Mother's Endless Love",
+//       "excerpt": "Discover the touching story of Maria, a mother whose sacrifices shaped her family’s future.",
+//       "category": "Stories",
+//       "image": "https://via.placeholder.com/12h-240x600?text=A+Mother's+Endless+Love"
+//     },
+//     {
+//       "id": 2,
+//       "title": "Staying Healthy as a Busy Mom",
+//       "excerpt": "Learn simple tips for moms to maintain health and balance in their daily lives.",
+//       "category": "Health",
+//       "image": "https://via.placeholder.com/1200x600?text=Healthy+Mom"
+//     },
+//     {
+//       "id": 3,
+//       "title": "Inspiring Moms Who Lead",
+//       "excerpt": "Celebrate mothers like Sarah, who turned challenges into opportunities for all.",
+//       "category": "Inspiration",
+//       "image": "https://via.placeholder.com/1200x600?text=Inspiring+Moms"
+//     },
+//     {
+//       "id": 4,
+//       "title": "The Gift of Time",
+//       "excerpt": "A heartwarming tale of a mother and daughter reconnecting through simple moments.",
+//       "category": "Stories",
+//       "image": "https://via.placeholder.com/1200x600?text=Gift+of+Time"
+//     },
+//     {
+//       "id": 5,
+//       "title": "Mindfulness for Moms",
+//       "excerpt": "Explore how mindfulness helps mothers find peace amidst the chaos.",
+//       "category": "Health",
+//       "image": "https://via.placeholder.com/1200x600?text=Mindfulness"
+//     }
+// ]
 
 const articles = [
     {
