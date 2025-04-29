@@ -1,8 +1,10 @@
+"use client"
+
 import Link from "next/link";
-import { FiAlignJustify } from "react-icons/fi";
-import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
+import { useEffect } from "react";
+import Lenis from "lenis";
 
 
 // const stories = [
@@ -79,21 +81,23 @@ const articles = [
   ]
 
 export default function Home() {
+
+  useEffect(()=>{
+    // Initialize Lenis
+    const lenis = new Lenis();
+
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  })
+
+
   return (
     <div className="relative min-h-screen w-full bg-white">
-      {/* navbar */}
-      <nav className="flex items-center w-full h-fit justify-between px-[10vw] py-5 absolute z-100 text-white">
-        <ul className="flex items-center justify-between text-2xl">
-          <Link href={''}><FiAlignJustify/></Link>
-        </ul>
-        <ul className="md:flex items-center justify-between text-xl hidden">
-          <Link href={''}>Mother’s Day Tribute Blog</Link>
-        </ul>
-        <ul className="flex items-center justify-between text-2xl">
-          <Link href={''}><CiSearch/></Link>
-        </ul>
-      </nav>
-
       {/* hero */}
       <div className="w-full h-screen relative z-0">
         <Image alt="" src={'/img1.jpg'} width={2000} height={2000} className="w-full h-full object-cover "/>
@@ -240,10 +244,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-      </div>
-
-      <div className="bg-blue-100 h-screen w-full">
-
       </div>
     </div>
   );
