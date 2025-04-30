@@ -7,12 +7,17 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-interface PageProps {
-  params: { id: string };
+
+export async function generateStaticParams() {
+  return [
+    { id: "1" },
+    { id: "2" },
+    { id: "3" },
+    { id: "4" },
+  ];
 }
 
-
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }:{ params: { id: string }}) {
     const articles = [
         {
           id: 1,
@@ -55,9 +60,8 @@ export default async function Page({ params }: PageProps) {
           description: "Time is the most precious gift we can give—and this story captures that truth beautifully. After years of growing apart, a daughter returns home on Mother’s Day to spend a quiet weekend with her aging mother. As they prepare meals, revisit old photo albums, and walk through familiar parks, long-buried emotions rise to the surface. Through both silence and laughter, they begin to rebuild their bond. This narrative isn’t just about celebration—it’s about reflection, healing, and the rediscovery of love. 'The Gift of Time' reminds us that it’s never too late to reconnect with the ones who matter most."
         }
       ];
-      
-      
-    const articleId = parseInt(params.id); // `params` is available here safely
+  
+    const articleId = parseInt(params.id); 
     const article = articles.find((a) => a.id === articleId);
   
     if (!article) return notFound();
