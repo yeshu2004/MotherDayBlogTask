@@ -305,10 +305,10 @@ export default function Home() {
                         </h5>
                       </div>
                     </div>
-                    <h1 className="lg:text-4xl md:text-3xl text-[1.6rem] leading-[1.1] font-semibold font-mono">
+                    <h1 className="md:text-3xl text-[1.6rem] leading-[1.1] font-semibold font-mono">
                       {article.title}
                     </h1>
-                    <h5 className="text-zinc-500 lg:text-base text-sm hidden md:block">
+                    <h5 className="text-zinc-500 text-sm hidden md:block">
                       {article.excerpt}
                     </h5>
                     <Link href={`/articles/${article.id}`}>
