@@ -64,7 +64,7 @@ export default function page() {
   return (
     <div className="relative min-h-screen pt-10">
       <main className="relative z-10 px-[10vw] pt-[4vw] pb-[2vw]">
-        <h1 className="text-2xl">Catagories</h1>
+        <h1 className="text-2xl font-mono">Catagories</h1>
         <div className="py-5 ">
           <Section subheading="Stories" cards={cards} />
           <Section subheading="Inspiration" cards={cards} />

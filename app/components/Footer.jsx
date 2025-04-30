@@ -28,10 +28,10 @@ export default function Footer() {
             <div className="px-[10vw] md:py-5 py-2">
               <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-1">
-                  <h4 className="md:text-2xl font-semibold text-xl">Personal Travels</h4>
-                  <h5 className="md:text-sm text-xs">Copyrights &#169; 2020 All Rights Reserved</h5>
+                  <h4 className="md:text-2xl font-mono text-xl">Tribute Blog</h4>
+                  <h5 className="md:text-sm text-xs text-zinc-500">Copyrights &#169; 2020 All Rights Reserved</h5>
                 </div>
-                <div className="md:flex items-center gap-5 hidden">
+                <div className="md:flex items-center gap-5 hidden text-zinc-500">
                   <Link href={"/"}>Home</Link>
                   <Link href={"/aboutme"}>About</Link>
                   <Link href={"/categories"}>Categories</Link>

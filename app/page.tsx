@@ -3,46 +3,34 @@
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
-// const stories = [
-//     {
-//       "id": 1,
-//       "title": "A Mother's Endless Love",
-//       "excerpt": "Discover the touching story of Maria, a mother whose sacrifices shaped her family’s future.",
-//       "category": "Stories",
-//       "image": "https://via.placeholder.com/12h-240x600?text=A+Mother's+Endless+Love"
-//     },
-//     {
-//       "id": 2,
-//       "title": "Staying Healthy as a Busy Mom",
-//       "excerpt": "Learn simple tips for moms to maintain health and balance in their daily lives.",
-//       "category": "Health",
-//       "image": "https://via.placeholder.com/1200x600?text=Healthy+Mom"
-//     },
-//     {
-//       "id": 3,
-//       "title": "Inspiring Moms Who Lead",
-//       "excerpt": "Celebrate mothers like Sarah, who turned challenges into opportunities for all.",
-//       "category": "Inspiration",
-//       "image": "https://via.placeholder.com/1200x600?text=Inspiring+Moms"
-//     },
-//     {
-//       "id": 4,
-//       "title": "The Gift of Time",
-//       "excerpt": "A heartwarming tale of a mother and daughter reconnecting through simple moments.",
-//       "category": "Stories",
-//       "image": "https://via.placeholder.com/1200x600?text=Gift+of+Time"
-//     },
-//     {
-//       "id": 5,
-//       "title": "Mindfulness for Moms",
-//       "excerpt": "Explore how mindfulness helps mothers find peace amidst the chaos.",
-//       "category": "Health",
-//       "image": "https://via.placeholder.com/1200x600?text=Mindfulness"
-//     }
-// ]
+const stories = [
+  {
+    id: 1,
+    title: "The Heart That Raised Us",
+    excerpt: "Explore the emotional journey of a mother's sacrifices, shaping generations with her unconditional love and wisdom.",
+    category: "Stories",
+    image: "storiesimg2.jpg"
+  },
+  {
+    id: 2,
+    title: "Self-Care Tips for Every Mom",
+    excerpt: "Being a mom is a full-time job. Discover simple ways mothers can nourish their mind, body, and soul every day.",
+    category: "Health",
+    image: "storiesimg3.jpg"
+  },
+  {
+    id: 3,
+    title: "Everyday Heroes: Moms Who Inspire",
+    excerpt: "Meet mothers who turned everyday struggles into extraordinary stories of courage, leadership, and hope.",
+    category: "Inspiration",
+    image: "storiesimg1.jpg"
+  }
+];
+
 
 const articles = [
   {
@@ -92,6 +80,19 @@ const articles = [
 ];
 
 export default function Home() {
+
+  const [index, setIndex] = useState(0);
+
+  const handleNext = () => {
+    setIndex((prev) => (prev + 1) % stories.length);
+  };
+
+  const handlePrev = () => {
+    setIndex((prev) => (prev - 1 + stories.length) % stories.length);
+  };
+
+  const story = stories[index];
+
   useEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis();
@@ -108,49 +109,60 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-white">
       {/* hero */}
-      <div className="w-full h-screen relative z-0">
-        <Image
-          alt=""
-          src={"/img1.jpg"}
-          width={2000}
-          height={2000}
-          className="w-full h-full object-cover "
-        />
-        {/* box */}
-        <div className="md:h-[50vh] h-[40vh] md:w-[35vw] w-[65vw] bg-white text-black absolute bottom-0 left-[10vw]">
-          <div className="hidden md:flex items-center absolute top-0 right-0 translate-x-[50%]">
-            <div className="h-20 w-20 bg-black flex items-center justify-center text-white">
-              <span className="rotate-180 text-2xl">
-                <IoIosArrowForward />
-              </span>
-            </div>
-            <div className="h-20 w-20 bg-white flex items-center justify-center text-black">
-              <span className=" text-2xl">
-                <IoIosArrowForward />
-              </span>
-            </div>
+       <div className="w-full h-screen relative z-0">
+      <Image
+        alt={story.title}
+        src={`/${story.image}`}
+        fill
+        priority
+        className="w-full h-full object-cover"
+      />
+
+      {/* Content box */}
+      <div className="h-fit md:w-[45vw] lg:w-[40vw] w-[65vw] bg-white text-black absolute bottom-0 left-[10vw]">
+        {/* Arrows */}
+        <div className="flex items-center absolute top-0 right-0 translate-x-[50%] z-10">
+          <div
+            onClick={handlePrev}
+            className="cursor-pointer lg:h-20 md:h-14 lg:w-20 md:w-14 h-10 w-10 bg-black flex items-center justify-center text-white"
+          >
+            <span className="rotate-180 text-2xl">
+              <IoIosArrowForward />
+            </span>
           </div>
-          <div className="h-full p-10 flex flex-col gap-5">
-            <h5 className="text-base sm:text-sm font-semibold">#Stories</h5>
-            <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit ?
-            </h1>
-            <h3 className="text-base hidden md:block text-zinc-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Provident vel nam ab tenetur est dolore dicta laboriosam vitae
-              neque molestiae.
-            </h3>
-            <button className="bg-black text-white px-5 py-3 w-fit border-none">
-              Read More
-            </button>
+          <div
+            onClick={handleNext}
+            className="cursor-pointer lg:h-20 md:h-14 lg:w-20 md:w-14 h-10 w-10 bg-black flex items-center justify-center text-white"
+          >
+            <span className="text-2xl">
+              <IoIosArrowForward />
+            </span>
           </div>
         </div>
+
+        {/* Text */}
+        <div className="h-full p-10 flex flex-col lg:gap-5 gap-4">
+          <h5 className="text-sm md:text-xs lg:text-base font-semibold lowercase">#{story.category}</h5>
+          <h1 className="lg:text-5xl md:text-3xl leading-none text-3xl font-mono tracking-tight">
+            {story.title}
+          </h1>
+          <h3 className="text-base md:text-sm hidden md:block text-zinc-500">
+            {story.excerpt}
+          </h3>
+          <button className="bg-black text-white px-5 py-3 w-fit border-none md:text-sm lg:text-base text-base">
+            Read More
+          </button>
+        </div>
       </div>
+    </div>
       <div className="h-full w-full ">
         {/* expore */}
         <div className="px-[10vw] py-10 flex flex-col gap-10">
           <div className="flex items-start justify-between">
+            <div className="flex items-center md:gap-2 gap-1">
             <h2 className="text-2xl">Explore by catagory</h2>
+            <span className="text-2xl"><MdOutlineArrowOutward/></span>
+            </div>
             <div className="md:flex items-center gap-1 hidden">
               <div className="h-10 w-10 bg-black flex items-center justify-center text-white">
                 <span className="rotate-180 text-xl">
@@ -254,7 +266,10 @@ export default function Home() {
 
       {/* recent article */}
       <div className="min-h-screen w-full px-[10vw] py-10">
-        <h5 className="text-2xl">Recent articles</h5>
+        <div className="flex items-center md:gap-2 gap-1">
+          <h5 className="text-2xl">Recent articles</h5>
+          <span className="text-2xl"><MdOutlineArrowOutward/></span>
+        </div>
         <div className="lg:flex-row lg:flex flex flex-col items-start h-full w-full py-5">
           <div className="w-full h-full flex flex-col gap-10 md:gap-5">
             {articles.map((article, id) => {

@@ -38,13 +38,13 @@ export default function Navbar() {
       >
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? (
-            <RxCross1 className="text-2xl" />
+            <RxCross1 className="text-2xl cursor-pointer" />
           ) : (
-            <FiAlignJustify className="text-2xl" />
+            <FiAlignJustify className="text-2xl cursor-pointer" />
           )}
         </button>
-        <div className="hidden items-center justify-center text-xl md:flex">
-          <Link href="/">Personal Travel Blog</Link>
+        <div className="hidden items-center justify-center text-xl md:flex font-mono">
+          <Link href="/">Mother’s Day Tribute Blog</Link>
         </div>
         <ul className="flex items-center justify-between text-2xl">
           <Link href="/search">
