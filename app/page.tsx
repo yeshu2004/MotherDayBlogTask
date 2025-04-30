@@ -149,7 +149,7 @@ export default function Home() {
             <h3 className="text-sm lg:text-base text-zinc-500">
               {story.excerpt}
             </h3>
-            <button className="bg-black text-white px-5 py-3 w-fit border-none md:text-sm lg:text-base text-base">
+            <button className="bg-black text-white px-5 py-3 w-fit border-none md:text-sm lg:text-base text-base cursor-pointer">
               Read More
             </button>
           </div>
@@ -312,7 +312,7 @@ export default function Home() {
                       {article.excerpt}
                     </h5>
                     <Link href={`/articles/${article.id}`}>
-                      <button className="bg-black text-white px-10 py-3 w-fit text-sm lg:text-base">
+                      <button className="bg-black text-white px-10 py-3 w-fit text-sm lg:text-base cursor-pointer">
                         Read more
                       </button>
                     </Link>
