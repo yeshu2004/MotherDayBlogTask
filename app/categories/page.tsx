@@ -63,7 +63,7 @@ interface SectionProps {
   cards: Card[];
 }
 
-export default function page() {
+export default function Page() {
   return (
     <div className="relative min-h-screen pt-10">
       <main className="relative z-10 px-[10vw] pt-[4vw] pb-[2vw]">

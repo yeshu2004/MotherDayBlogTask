@@ -7,8 +7,12 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
+interface PageProps {
+  params: { id: string };
+}
 
-export default async function Page({ params }: { params: { id: string } }) {
+
+export default async function Page({ params }: PageProps) {
     const articles = [
         {
           id: 1,
@@ -73,7 +77,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <h1 className="text-center md:text-5xl font-mono text-3xl">
             {article.title}
           </h1>
-          <div className="flex  flex-col md:flex-rowitems-center md:gap-32 gap-10">
+          <div className="flex  flex-col md:flex-row items-center md:gap-32 gap-10">
             <div className="flex items-center gap-2">
               <h4>{article.category}</h4>
               <div className="flex items-center gap-2">
