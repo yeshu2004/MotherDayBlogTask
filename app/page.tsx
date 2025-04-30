@@ -13,21 +13,21 @@ const stories = [
     title: "The Heart That Raised Us",
     excerpt: "Explore the emotional journey of a mother's sacrifices, shaping generations with her unconditional love and wisdom.",
     category: "Stories",
-    image: "storiesimg2.jpg"
+    image: "storiesimg4.jpg"
   },
   {
     id: 2,
     title: "Self-Care Tips for Every Mom",
     excerpt: "Being a mom is a full-time job. Discover simple ways mothers can nourish their mind, body, and soul every day.",
     category: "Health",
-    image: "storiesimg3.jpg"
+    image: "storiesimg5.jpg"
   },
   {
     id: 3,
     title: "Everyday Heroes: Moms Who Inspire",
     excerpt: "Meet mothers who turned everyday struggles into extraordinary stories of courage, leadership, and hope.",
     category: "Inspiration",
-    image: "storiesimg1.jpg"
+    image: "storiesimg6.jpg"
   }
 ];
 
@@ -141,12 +141,12 @@ export default function Home() {
         </div>
 
         {/* Text */}
-        <div className="h-full p-10 flex flex-col lg:gap-5 gap-4">
+        <div className="h-full md:p-10 p-8 flex flex-col lg:gap-5 gap-4">
           <h5 className="text-sm md:text-xs lg:text-base font-semibold lowercase">#{story.category}</h5>
           <h1 className="lg:text-5xl md:text-3xl leading-none text-3xl font-mono tracking-tight">
             {story.title}
           </h1>
-          <h3 className="text-base md:text-sm hidden md:block text-zinc-500">
+          <h3 className="text-sm lg:text-base text-zinc-500">
             {story.excerpt}
           </h3>
           <button className="bg-black text-white px-5 py-3 w-fit border-none md:text-sm lg:text-base text-base">
@@ -157,8 +157,8 @@ export default function Home() {
     </div>
       <div className="h-full w-full ">
         {/* expore */}
-        <div className="px-[10vw] py-10 flex flex-col gap-10">
-          <div className="flex items-start justify-between">
+        <div className="px-[10vw] py-10 flex flex-col gap-5">
+          <div className="flex items-start justify-between ">
             <div className="flex items-center md:gap-2 gap-1">
             <h2 className="text-2xl">Explore by catagory</h2>
             <span className="text-2xl"><MdOutlineArrowOutward/></span>
@@ -265,7 +265,7 @@ export default function Home() {
       </div>
 
       {/* recent article */}
-      <div className="min-h-screen w-full px-[10vw] py-10">
+      <div className="min-h-screen w-full px-[10vw] md:py-5 py-5">
         <div className="flex items-center md:gap-2 gap-1">
           <h5 className="text-2xl">Recent articles</h5>
           <span className="text-2xl"><MdOutlineArrowOutward/></span>
@@ -315,9 +315,9 @@ export default function Home() {
               );
             })}
           </div>
-          <div className=" lg:w-1/3 w-full h-fit flex flex-col gap-10 md:mt-0 mt-24">
+          <div className=" lg:w-1/3 w-full h-fit flex flex-col gap-10 md:mt-0 mt-28">
             <div className="border-[1px] border-black max-h-[50vh] w-full relative text-center pt-20 pb-10 px-5 flex flex-col gap-3">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 bg-blue-700 rounded-full overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 bg-white rounded-full overflow-hidden">
                 <Image
                   alt=""
                   src={"/aboutimg1.jpg"}
@@ -330,10 +330,7 @@ export default function Home() {
               </div>
               <h1 className="text-2xl">Jaspreet Bhamari</h1>
               <h5 className="text-zinc-500">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga
-                ad corporis perferendis autem sint, facere aperiam nam vitae
-                quia consequuntur, iure deleniti quae velit nemo odit ipsam
-                fugit rerum voluptate!
+              A passionate frontend developer and storyteller. I created this blog as a heartfelt space to honor the love, resilience, and inspiration that mothers bring into our lives.I aim to craft meaningful experiences.
               </h5>
               <h4 className="text-lg font-semibold">Follow me</h4>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">

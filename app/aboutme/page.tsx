@@ -20,12 +20,12 @@ export default function Page() {
       </div>
       <div className="h-screen w-full px-[10vw] relative">
         <div className="bg-white min-h-screen w-[80vw] absolute -top-1/2 left-[10vw] py-10">
-          <div className="flex flex-col md:gap-2 gap-1">
+          <div className="flex flex-col md:gap-2 ">
             <h1 className="text-center md:text-4xl text-2xl">My name is</h1>
             <h1 className="text-center md:text-4xl font-mono text-2xl">Jaspreet Bhamari</h1>
           </div>
           <div>
-            <div className="flex gap-3 mt-10 justify-center ">
+            <div className="flex gap-3 mt-5 md:mt-10  justify-center ">
               <FaFacebookF className="md:w-14 w-10 h-10 md:h-14 md:p-3 p-2 text-2xl bg-black text-white" />
               <FaInstagram className="md:w-14 w-10 h-10 md:h-14 md:p-3 p-2 text-2xl bg-black text-white" />
               <FaYoutube className="md:w-14 w-10 h-10 md:h-14 md:p-3 p-2 text-2xl bg-black text-white" />
@@ -34,13 +34,13 @@ export default function Page() {
           </div>
           <div className="flex flex-col items-center text-center w-full ">
             <hr className="w-[25vh] md:w-[30rem] mt-10 border-gray-300" />
-            <p className="italic text-gray-700 mt-6 md:text-xl max-w-[28rem]">
+            <p className="italic text-gray-700 mt-6 md:text-xl max-w-[28rem] px-3">
               Some beautiful paths can&apos;t be discovered without getting lost.
             </p>
             <hr className="w-[25vh] md:w-[30rem] mt-6 mb-10 border-gray-300" />
 
             {/* Description */}
-            <p className="max-w-lg text-gray-800 px-4 pb-10 text-left text-sm md:text-base">
+            <p className="max-w-lg text-gray-800 px-7 italic md:px-3 pb-10 text-left text-sm md:text-base">
               For as long as I can remember I&apos;ve been obsessed with the idea of
               travel. I was always that person who was forever daydreaming of
               foreign lands and unfamiliar cultures; coming up with travel
