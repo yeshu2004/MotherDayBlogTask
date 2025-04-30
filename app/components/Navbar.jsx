@@ -33,7 +33,7 @@ export default function Navbar() {
     <div className="relative h-full w-full">
       <nav
         className={`absolute top-0 left-0 z-50 flex w-full items-center justify-between px-[10vw] py-5 transition-colors duration-300 ${
-          isContactPage ? "text-black" : "text-white"
+          isContactPage || isCategoryPage ? "text-black" : "text-white"
         }`}
       >
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
