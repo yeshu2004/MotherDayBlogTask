@@ -47,6 +47,19 @@ const cards = [
   },
 ];
 
+interface Card {
+  cat: string;
+  timeRead: string;
+  title: string;
+  subtitle: string;
+  img: string;
+}
+
+interface SectionProps {
+  subheading: string;
+  cards: Card[];
+}
+
 export default function page() {
   return (
     <div className="relative min-h-screen pt-10">
@@ -62,7 +75,7 @@ export default function page() {
   );
 }
 
-function Section({subheading, cards} ) {
+function Section({ subheading, cards }: SectionProps ) {
   return (
     <section className="relative pb-5">
       <div className="flex items-start justify-between">
@@ -101,19 +114,5 @@ function Section({subheading, cards} ) {
         ))}
       </div>
     </section>
-  );
-}
-
-function FollowSection() {
-  return (
-    <div className="my-8">
-      <div className="bg-black p-4">
-        <div className="max-w-4xl mx-auto flex justify-between items-center text-white">
-          <span className="font-sans">Follow me on instagram</span>
-          {/* <CameraIcon className="h-6 w-6" /> */}
-        </div>
-      </div>
-      <div className="mt-4 bg-gray-200 h-64 max-w-4xl mx-auto"></div>
-    </div>
   );
 }
