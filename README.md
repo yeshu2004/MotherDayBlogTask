@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mother's Day Tribute Blog
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+This project is a Mother's Day Tribute Blog developed using Next.js. It is designed to replicate the UI from a provided Figma design and includes features such as a homepage with a hero carousel, category sections, recent articles, and individual story detail pages. The project demonstrates skills in frontend development, including routing, dynamic content rendering, and responsive design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How to Run Locally
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   git clone https://github.com/yeshu2004/MotherDayBlogTask
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Navigate to the project directory:
 
-## Learn More
+3. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+5. Open your browser and visit `http://localhost:3000` to view the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features Implemented
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Home Page:**
+  - Hero Section with a functional carousel displaying featured tribute stories.
+  - Explore by Category Section with clickable category cards.
+  - Recent Articles Section displaying article cards with images, titles, excerpts, reading times, and category tags.
+  - Static Sidebar with Author Profile and Highlights.
+
+- **Story Detail Page:**
+  - Dynamic routing to display individual article details based on the article ID.
+  - Displays full article content, title, author name, date, category, and reading time.
+
+- **Data Handling:**
+  - Articles are stored in a local JSON file and include fields such as ID, Title, Excerpt, Full Content, Category, Reading Time, and Image URL.
+
+- **Responsiveness:**
+  - The application is fully responsive and works on Desktop, Tablet, and Mobile devices.
+
+## Technologies Used
+
+- Next.js
+- React.js
+- Tailwind CSS
+- Lenis
+- Framer
+- JavaScript
+
+## Live Deployment
+
+- The project is deployed on Vercel and can be accessed [here](https://mother-day-blog-task.vercel.app/).
+
+---
