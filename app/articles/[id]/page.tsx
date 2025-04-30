@@ -17,7 +17,11 @@ export async function generateStaticParams() {
   ];
 }
 
-export default async function Page({ params }:{ params: { id: string }}) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params; // Await the params promise to get the id
+  const articleId = parseInt(id, 10);
+  if (isNaN(articleId)) return notFound();
+
     const articles = [
         {
           id: 1,
@@ -61,10 +65,9 @@ export default async function Page({ params }:{ params: { id: string }}) {
         }
       ];
   
-    const articleId = parseInt(params.id); 
-    const article = articles.find((a) => a.id === articleId);
+  const article = articles.find((a) => a.id === articleId);
+  if (!article) return notFound();
   
-    if (!article) return notFound();
   return (
     <div className="min-h-screen w-full relative">
       <div className="w-full h-screen relative z-0">
