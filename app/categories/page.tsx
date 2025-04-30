@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import { IoIosArrowForward } from "react-icons/io";
   
 const cards = [
@@ -76,24 +79,44 @@ export default function page() {
 }
 
 function Section({ subheading, cards }: SectionProps ) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    const container = scrollRef.current;
+    const scrollAmount = container?.offsetWidth ? container.offsetWidth * 0.8 : 300;
+
+    if (container) {
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className="relative pb-5">
       <div className="flex items-start justify-between">
         <p className="text-black text-xl font-mono">{subheading}</p>
         <div className="hidden md:flex items-center gap-1">
-          <div className="h-10 w-10 bg-black flex items-center justify-center text-white">
+        <button
+            onClick={() => scroll("left")}
+            className="h-10 w-10 bg-black flex items-center justify-center text-white"
+          >
             <span className="rotate-180 text-2xl">
               <IoIosArrowForward />
             </span>
-          </div>
-          <div className="h-10 w-10 bg-black flex items-center justify-center text-white">
-            <span className=" text-2xl">
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="h-10 w-10 bg-black flex items-center justify-center text-white"
+          >
+            <span className="text-2xl">
               <IoIosArrowForward />
             </span>
-          </div>
+          </button>
         </div>
       </div>
-      <div className="flex gap-4 mt-2 overflow-y-auto">
+      <div ref={scrollRef} className="flex gap-4 mt-2 overflow-y-auto scroll-smooth">
         {cards.map((card, index) => (
           <div key={index} className="relative md:w-1/4 w-full shrink-0">
             <div className="w-full h-48 bg-gray-200 relative overflow-hidden">

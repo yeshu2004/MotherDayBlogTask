@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
@@ -38,45 +38,52 @@ const articles = [
   {
     id: 1,
     title: "A Mother's Endless Love",
-    excerpt: "Maria's story is a beautiful reminder of how a mother’s sacrifices and silent strength can transform the lives of her children, giving them a future filled with hope, opportunity, and love.",
+    excerpt:
+      "Maria's story is a beautiful reminder of how a mother’s sacrifices and silent strength can transform the lives of her children, giving them a future filled with hope, opportunity, and love.",
     category: "Stories",
     readingTime: 5,
     subImage: "artimg1.jpg",
     image: "cardsimg1.jpg",
-    description: "Maria, a single mother in a small village, faced relentless hardships after her husband’s passing. Despite financial struggles and societal pressure, she worked tirelessly as a seamstress to educate her children. Her days were long and filled with quiet resilience, choosing their future over her own comfort. From sewing late into the night to skipping meals to feed them, her unwavering devotion became the foundation of her children’s success. This story is a heartfelt tribute to the countless mothers whose unconditional love and unseen sacrifices pave the way for a better tomorrow. Maria’s love was truly endless—and deeply transformative."
+    description:
+      "Maria, a single mother in a small village, faced relentless hardships after her husband’s passing. Despite financial struggles and societal pressure, she worked tirelessly as a seamstress to educate her children. Her days were long and filled with quiet resilience, choosing their future over her own comfort. From sewing late into the night to skipping meals to feed them, her unwavering devotion became the foundation of her children’s success. This story is a heartfelt tribute to the countless mothers whose unconditional love and unseen sacrifices pave the way for a better tomorrow. Maria’s love was truly endless—and deeply transformative.",
   },
   {
     id: 2,
     title: "Staying Healthy as a Busy Mom",
-    excerpt: "Between school runs, cooking, and work, moms often forget themselves. These easy, time-saving health tips can help mothers care for their own well-being without compromising their responsibilities or peace of mind.",
+    excerpt:
+      "Between school runs, cooking, and work, moms often forget themselves. These easy, time-saving health tips can help mothers care for their own well-being without compromising their responsibilities or peace of mind.",
     category: "Health",
     readingTime: 4,
     subImage: "artimg2.jpg",
     image: "cardsimg3.jpg",
-    description: "Health often takes a backseat when you're juggling motherhood, chores, and possibly a full-time job. This article offers simple yet powerful tips to integrate wellness into your daily routine. From 10-minute home workouts to nutritious meal prepping and stress management techniques like mindful breathing, every suggestion respects your time and energy. You’ll also find encouragement to set boundaries and schedule personal check-ins. Because staying healthy isn’t selfish—it’s essential for sustaining the strength motherhood demands."
+    description:
+      "Health often takes a backseat when you're juggling motherhood, chores, and possibly a full-time job. This article offers simple yet powerful tips to integrate wellness into your daily routine. From 10-minute home workouts to nutritious meal prepping and stress management techniques like mindful breathing, every suggestion respects your time and energy. You’ll also find encouragement to set boundaries and schedule personal check-ins. Because staying healthy isn’t selfish—it’s essential for sustaining the strength motherhood demands.",
   },
   {
     id: 3,
     title: "Inspiring Moms Who Lead",
-    excerpt: "Meet extraordinary moms who turned adversity into leadership. Their powerful stories show how love, grit, and vision can reshape communities—and redefine what it means to lead while nurturing a family.",
+    excerpt:
+      "Meet extraordinary moms who turned adversity into leadership. Their powerful stories show how love, grit, and vision can reshape communities—and redefine what it means to lead while nurturing a family.",
     category: "Inspiration",
     readingTime: 6,
     subImage: "artimg4.jpg",
     image: "catimg2.jpg",
-    description: "Leadership comes in many forms—and motherhood often shapes some of the strongest. This article highlights real moms who rose above personal setbacks to lead social movements, launch businesses, and inspire change. From Sarah, a former shelter resident who created a nonprofit for homeless families, to Asha, who became the first female mayor of her town while raising two kids, each story speaks of courage and transformation. These women prove that motherhood is not a limitation—it’s a strength."
+    description:
+      "Leadership comes in many forms—and motherhood often shapes some of the strongest. This article highlights real moms who rose above personal setbacks to lead social movements, launch businesses, and inspire change. From Sarah, a former shelter resident who created a nonprofit for homeless families, to Asha, who became the first female mayor of her town while raising two kids, each story speaks of courage and transformation. These women prove that motherhood is not a limitation—it’s a strength.",
   },
   {
     id: 4,
     title: "The Gift of Time",
-    excerpt: "A touching Mother’s Day story about a daughter who surprises her mom with a weekend together—where shared memories, heartfelt conversations, and long-forgotten laughter begin to heal their strained relationship.",
+    excerpt:
+      "A touching Mother’s Day story about a daughter who surprises her mom with a weekend together—where shared memories, heartfelt conversations, and long-forgotten laughter begin to heal their strained relationship.",
     category: "Stories",
     readingTime: 3,
     subImage: "artimg3.jpg",
     image: "cardsimg6.jpg",
-    description: "Time is the most precious gift we can give—and this story captures that truth beautifully. After years of growing apart, a daughter returns home on Mother’s Day to spend a quiet weekend with her aging mother. As they prepare meals, revisit old photo albums, and walk through familiar parks, long-buried emotions rise to the surface. Through both silence and laughter, they begin to rebuild their bond. This narrative isn’t just about celebration—it’s about reflection, healing, and the rediscovery of love. 'The Gift of Time' reminds us that it’s never too late to reconnect with the ones who matter most."
-  }
+    description:
+      "Time is the most precious gift we can give—and this story captures that truth beautifully. After years of growing apart, a daughter returns home on Mother’s Day to spend a quiet weekend with her aging mother. As they prepare meals, revisit old photo albums, and walk through familiar parks, long-buried emotions rise to the surface. Through both silence and laughter, they begin to rebuild their bond. This narrative isn’t just about celebration—it’s about reflection, healing, and the rediscovery of love. 'The Gift of Time' reminds us that it’s never too late to reconnect with the ones who matter most.",
+  },
 ];
-
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -90,6 +97,21 @@ export default function Home() {
   };
 
   const story = stories[index];
+
+  const scrollRef = useRef(null);
+
+  const scroll = (direction: string) => {
+    const container = scrollRef.current;
+    if (!container) return; // add a null check
+  
+    const scrollAmount = (container as HTMLElement).offsetWidth * 0.8;
+  
+    if (direction === "left") {
+      (container as HTMLElement).scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      (container as HTMLElement).scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     // Initialize Lenis
@@ -166,19 +188,25 @@ export default function Home() {
               </span>
             </div>
             <div className="md:flex items-center gap-1 hidden">
-              <div className="h-10 w-10 bg-black flex items-center justify-center text-white">
-                <span className="rotate-180 text-xl">
-                  <IoIosArrowForward />
-                </span>
-              </div>
-              <div className="h-10 w-10 bg-black flex items-center justify-center text-white">
-                <span className=" text-xl">
-                  <IoIosArrowForward />
-                </span>
-              </div>
+            <button
+              onClick={() => scroll("left")}
+              className="h-10 w-10 bg-black flex items-center justify-center text-white"
+            >
+              <span className="rotate-180 text-xl">
+                <IoIosArrowForward />
+              </span>
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="h-10 w-10 bg-black flex items-center justify-center text-white"
+            >
+              <span className="text-xl">
+                <IoIosArrowForward />
+              </span>
+            </button>
             </div>
           </div>
-          <div className="w-full h-fit flex items-center gap-10 shrink-0 overflow-x-auto overflow-y-hidden">
+          <div ref={scrollRef} className="w-full h-fit flex items-center gap-10 shrink-0 overflow-x-auto overflow-y-hidden scroll-smooth">
             <div className="relative h-[35vh] md:h-[30vh] w-full md:w-[30vh] text-lg flex items-center justify-center shrink-0 overflow-hidden">
               <Image
                 src="/catimg1.jpg"
@@ -192,7 +220,9 @@ export default function Home() {
               {/* optional dark overlay */}
               <div className="relative flex flex-col text-white items-center gap-2 z-10">
                 <div className="bg-white h-1 w-20"></div>
-                <Link href={'/categories'} className="font-mono">Stories</Link>
+                <Link href={"/categories"} className="font-mono">
+                  Stories
+                </Link>
               </div>
             </div>
 
@@ -209,7 +239,9 @@ export default function Home() {
               {/* optional dark overlay */}
               <div className="relative flex flex-col text-white items-center gap-2 z-10">
                 <div className="bg-white h-1 w-20"></div>
-                <Link href={'/categories'} className="font-mono">Health</Link>
+                <Link href={"/categories"} className="font-mono">
+                  Health
+                </Link>
               </div>
             </div>
 
@@ -226,7 +258,9 @@ export default function Home() {
               {/* optional dark overlay */}
               <div className="relative flex flex-col text-white items-center gap-2 z-10">
                 <div className="bg-white h-1 w-20"></div>
-                <Link href={'/categories'} className="font-mono">Inspiration</Link>
+                <Link href={"/categories"} className="font-mono">
+                  Inspiration
+                </Link>
               </div>
             </div>
 
@@ -243,7 +277,9 @@ export default function Home() {
               {/* optional dark overlay */}
               <div className="relative flex flex-col text-white items-center gap-2 z-10">
                 <div className="bg-white h-1 w-20"></div>
-                <Link href={'/categories'} className="font-mono">Love</Link>
+                <Link href={"/categories"} className="font-mono">
+                  Love
+                </Link>
               </div>
             </div>
             <div className="relative h-[35vh] md:h-[30vh] w-full md:w-[30vh] text-lg flex items-center justify-center shrink-0 overflow-hidden">
@@ -259,7 +295,9 @@ export default function Home() {
               {/* optional dark overlay */}
               <div className="relative flex flex-col text-white items-center gap-2 z-10">
                 <div className="bg-white h-1 w-20"></div>
-                <Link href={'/categories'} className="font-mono">Care</Link>
+                <Link href={"/categories"} className="font-mono">
+                  Care
+                </Link>
               </div>
             </div>
           </div>
